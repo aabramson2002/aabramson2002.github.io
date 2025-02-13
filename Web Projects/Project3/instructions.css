@@ -1,0 +1,15 @@
+p{
+    color: white;
+}
+body{
+    background-color: darkslategray;
+}
+a{
+    color: lightblue;
+}
+a:hover{
+    color: yellow;
+}
+a:visited{
+    color: magenta;
+}
