@@ -1,0 +1,14 @@
+body{
+    background-color: lightblue;
+}
+h1{
+    color: navy;
+    text-align: center;
+}
+img {
+    text-align: center;
+}
+p, li{
+    font-family: sans-serif;
+    font-size: 18px;
+}
