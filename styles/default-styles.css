@@ -1,0 +1,68 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #17dddd;
+}
+main{
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+}
+#intro, h2{
+    text-align: center;
+    font-stretch: semi-expanded;
+}
+h2{
+    color:#7f0000;
+    font-family:'Lucida Sans', Arial, sans-serif
+}
+ul{
+    background-color: cornflowerblue;
+    border: solid 3px navy;
+}
+a:visited{
+    color: darkslategrey;
+}
+a:link{
+    color:navy;
+}
+a:hover{
+    color:lime;
+}
+
+.workbox{
+    background-color: cornflowerblue;
+    margin: 3em;
+    margin-left: 15px;
+    border: outset 5px navy;
+    padding: 20px;
+}
+
+p{
+    color: black;
+}
+
+#infobox{
+    display: flex;
+    flex: auto;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 3px navy;
+}
+
+.placeholder{
+    align-self: center;
+}
+#ending{
+    text-size-adjust: 200%;
+}
+
+#changeling > p, #cardgame > p, #scorp > p, #changeling > video, #cardgame > img, #scorp > img{
+    margin-left: 25px;
+}  
+.label{
+    margin-left: 10px;
+}
