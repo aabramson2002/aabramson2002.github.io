@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam's Portfolio</title>
-    <style rel="stylesheet" href="styles/default-styles.css"></style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style rel="stylesheet" href="styles/default-styles.css"></style>
     <script src="src/index.js"></script>
 </head>
 <body>
@@ -82,7 +82,117 @@
         </div>
         <br><br>
         <div id="work">
+            <h2 id="samplework" class="is-size-3">My Work</h2>
+            <div class="workbox">
+                <a href="https://www.changelingvr.com/">
+                    <h3 class="label is-size-4">Changeling Website</h3>
+                </a>
+                <!--<video width="1000" height="500" controls>
+                    <source src="Media/AAChangeling.mp4" type="video/mp4">
+                </video>-->
+                <p>
+                    This is a video of what I worked on over the Summer for the website of the upcoming video game
+                    Changeling.
+                    Changeling is an upcoming murder mystery VR game made by students and staff of RIT's school of
+                    Interactive Games and Media.
+                    On the website, there will be an experience for each character in the game and my responsibility was
+                    the Father, Dylan.
+                    In this game you go to the highlighted door, and select the item the family member is looking for.
+                    Most of the images used were either already pre-loaded to the team's repo, or were stock images from
+                    royalty free websites.
+                    Some I even made myself with MS Paint and Gimp like the baby rattle, book, and hands that surround
+                    Dylan as time progresses.
+                    These hands represent him succombing to the anxiety and pressure of him thinking it's his
+                    responsiblity always be there for his family.
+                    If the screen goes black, the game ends. The experience is currently not uploaded to the site so I
+                    made a video of how it works.
+                </p>
+            </div>
 
+            <div class="workbox">
+                <a href="https://www.youtube.com/watch?v=-S8skVJs5ws&t=96s">
+                    <h3 class="label is-size-4">Operation: Takeover</h3>
+                </a>
+                <!--<video width="800" height="400" controls>
+                    <source src="Media/Abra_A_P03c.mp4" type="video/mp4">
+                </video>-->
+                <p>This is a video demo of a level I designed using Hammer++ and assets from Half-Life 2.
+                    I created it as a part of my level design class, IGME 420. The level takes place in an
+                    abandoned castle, and your mission as the player is to retake the castle back for
+                    humanity. I stylized the castle to be abandoned by surrounding it with grafiti.
+                    There are 3 sections to the map. The first is the outer walls, where you use a pistol
+                    to defeat head crabs. Once you get past this section, you obtain an SMG and reach
+                    the garden, where you have to stay on the bridge and take out more headcrabs. Lastly,
+                    you get the crossbow, and enter the castle where a bossfight awaits.
+                </p>
+            </div>            
+
+            <div class="workbox">
+                <a href="https://www.nexusmods.com/fallout4/mods/76743/">
+                    <h3 class="label is-size-4">The Time Capsule</h3>
+                </a>
+                <img src="media/kronoBlaster.png" alt="Placeholder" class="placeholder py-3">
+                <p>This is a game modification of Fallout 4 that I helped work on. The mod is about locating
+                    a special weapon that freezes enemies in time inside of a makeshift pre-war vault.
+                    My responsiblity was to retexture the weapon so that it isn't visually identical to a 
+                    weapon already in-game. I also helped out with the level's design, figuring out where
+                    in game, the environment should be established.
+                </p>
+            </div>
+
+            <div class="workbox">
+                <!--<a href="../abramson-a-hw03-refactor/index.html">-->
+                    <h3 class="label is-size-4">Audio Visualizer</h3>
+                <!--</a>-->
+                <img src="media/AudioWeather.png" alt="Placeholder" class="placeholder py-3">
+                <p>This website uses canvas.js to visually display audio files into cool video art.
+                    It's code was origninally written in JavaScript, and later bundled with node, and 
+                    transpiled into TypeScript. The home page shows a menu that points to the app and 
+                    documentation about it. The first visualizer is themed around weather. The bars on
+                    top fall like raindrops and the circles in the center resemble the sun. 
+                    I plan to make more visualizers in the future. 
+                </p>
+            </div>
+
+            <div class="workbox">
+                <!--<a href="../Project3/index.html">-->
+                    <h3 class="label is-size-4">Hidden Within</h3>
+                <!--</a>-->
+                <img src="Media/HiddenWithin.png" alt="Placeholder" class="placeholder py-3">
+                <p> Hidden Within is a recreation of the shell game changed to a casino theme.
+                    In it, a coin is hidden within a set of 3 cards. Each time the shuffle button is pressed,
+                    the cards are shuffled into different positions. After more than 10 shuffles,
+                    the player can guess if they picked the right card. If they did, they win.
+                    The main way I programmed this game is by using the document object model.
+                    I was able to animate the card’s movement for the game by accessing the object’s CSS and changing
+                    it’s positioned each frame. One important thing I learned during the project is how ES6 classes
+                    work.
+                    By creating a class, I was able to store the card’s HTML reference, current position,
+                    and its future position, so that I can animate all the cards moving without overlapping,
+                    which was my biggest struggle during programming.
+                    Since the movements of the cards are completely randomized, sometimes they overlapped with each
+                    other, preventing the player from choosing the right card. I stopped this by creating lists of
+                    every possible position and transferring the contents of that list onto another empty list
+                    in a random order to tell each card where it must go.
+                    Ideas I have of improving it is by making the game based on a 3x3 grid instead of a line.
+                    Overall, I am proud of the game that I have made.
+                </p>
+            </div>
+            <div class="workbox">
+                <!--<a href="../Project2/index.html">-->
+                    <h3 class="label is-size-4">Joke Finder</h3>
+                <!--</a>-->
+                <img src="media/JokeFinder.png" alt="Placeholder" class="placeholder py-3">
+                <p>This website allows users to search for specific jokes based on words they type in 
+                    using JokeAPI. After entering a word, the site uses XHR to recive a list of jokes
+                    from the API containing the searched word. From there, you can press a check mark
+                    to add the joke to a separate site containing a list of your favorites.
+                    You can remove the joke from favorites by pressing the X next to the check.
+                    You can even the jokes being searched for with the category dropdown or the
+                    NSFW filter button. I am continuing to work on this website to improve it's 
+                    design and patch bugs within the code.
+                </p>
+            </div>
         </div>
         <br><br>
         <div id=ending>
