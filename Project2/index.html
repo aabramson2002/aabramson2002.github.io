@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Joke Finder</title>
+        <meta charset="UTF-8">
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://unpkg.com/sv443-joke-api@0.0.8/web/index.js"></script>
+    </head>
+    <body>
+        <h1>Joke Finder</h1>
+
+        <div id="searchbar">
+            <h4>Enter a word here:<input placeholder="Search..." id="search"></h4>            
+            <p id="favbox">Favorites</p> 
+            <select id="dropdown">
+                    <option value="Any">Any</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Pun">Pun</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Spooky">Spooky</option>
+                    <option value="Christmas">Christmas</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+              </select>
+            <h4>No NSFW? <input type="checkbox" id="NSFWBtn"></h4>
+        </div>
+
+        <p id="enterBtn">Enter</p>
+
+        <p id="welcomeTag"></p>
+        <p>You searched for: <i id="searchterm"></i></p>
+
+        <p id="debug"></p>
+        <br>
+
+        <div class = "answer">
+           <p>Why did the chicken cross the road? <br> To get to the other side!</p>
+           <img src="Images/check-mark.png" alt="checkmark" id="checkmark">
+           <img src="Images/red-x.png" alt="x-mark" id="x-mark">
+           <br>
+        </div>
+
+        <p>Adam Abramson <br>IGME 235</p>
+        <p><a href="documentation.html">Documentation</a></p>
+
+
+        <script src="code.js"></script>
+    </body>   
+    
+</html>
