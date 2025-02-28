@@ -31,12 +31,15 @@ a:link{
 a:hover{
     color:lime;
 }
+#work{
+    margin: 20px;
+}
 
 .workbox{
     background-color: cornflowerblue;
     margin: 3em;
     margin-left: 15px;
-    border: outset 5px navy;
+    border: solid 3px navy;
     padding: 20px;
 }
 p{
