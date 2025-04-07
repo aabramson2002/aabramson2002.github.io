@@ -1,10 +1,14 @@
 "use strict";
 
-//list of html ids converted into querySelectors for the program to use
+//variables for favorites and output
 let favbox = document.querySelector("#favbox");
 let checkMark = document.querySelector("#checkmark");
 let xMark = document.querySelector("#x-mark");
 let answer = document.querySelector(".answer");
+
+//related to jokes being serarched for
+let jokeType = document.querySelector("#joketype");
+let numSearched = document.querySelector("#num-searched");
 let dropdown = document.querySelector("#dropdown");
 let nsfwButton = document.querySelector("#NSFWBtn");
 let enterBtn = document.querySelector("#enterBtn");
@@ -49,21 +53,6 @@ function findInfo() {
         }
     }
 
-    //previous method trying to access catList
-    /*
-    let selectedCat = "";
-    
-    for (let j = 0; j < categories.length; j++){
-        for(let i = 0; i < catList.length; i++){
-            if(categories[j].value == catList[i]){ 
-                url += categories[j].value;
-                break;
-            }
-        }
-        break; 
-    }
-    */
-
     //finds what is written in the search bar
     let searchBar = document.querySelector("#search").value;
 
@@ -102,8 +91,7 @@ function findInfo() {
 }
 
 function getData(e){
-    //creates request for API to retrieve a joke
-    let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest(); //creates request for API to retrieve a joke
 
     //ran if the API has information
     xhr.onload = hasLoaded;
@@ -113,16 +101,10 @@ function getData(e){
 
     //sends request
     xhr.open("GET", url);
-    xhr.send()
-}
-
-//displays an error message if the API is unable to retrieve information
-function hasError(e) {
-    document.querySelector("#debug").innerHTML = "An error has happened";
+    xhr.send();
 }
 
 function hasLoaded(e) {
-
     //obtains response from API
     let xhr = e.target;
 
@@ -151,8 +133,12 @@ function hasLoaded(e) {
     else if (response == "double"){
         let jokeOutput = `<p>"${obj.setup}"<br>"${obj.delivery}</p> <img src="Images/check-mark.png" alt="checkmark" id="checkmark"> <img src="Images/red-x.png" alt="x-mark" id="x-mark"> <br>"`;
         document.querySelector(".answer").innerHTML = jokeOutput;
-    }
-    
+    }   
+}
+
+//displays an error message if the API is unable to retrieve information
+function hasError(e) {
+    document.querySelector("#debug").innerHTML = "An error has happened";
 }
 
 
