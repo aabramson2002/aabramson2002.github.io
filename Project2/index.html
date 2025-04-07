@@ -10,9 +10,12 @@
         <h1>Joke Finder</h1>
 
         <div id="searchbar">
-            <h4>Enter a word here:<input placeholder="Search..." id="search"></h4>            
-            <p id="favbox">Favorites</p> 
-            <select id="dropdown">
+            <h4>Enter a word here: <input placeholder="Search..." id="search"></h4>     
+            <h4>Joke Type: <select id="joketype">
+                <option value="one">One-line</option>
+                <option value="two">Two-line</option>
+            </select></h4>       
+            <h4>Category: <select id="dropdown">
                     <option value="Any">Any</option>
                     <option value="Programming">Programming</option>
                     <option value="Pun">Pun</option>
@@ -20,11 +23,15 @@
                     <option value="Spooky">Spooky</option>
                     <option value="Christmas">Christmas</option>
                     <option value="Miscellaneous">Miscellaneous</option>
-              </select>
+              </select></h4>
             <h4>No NSFW? <input type="checkbox" id="NSFWBtn"></h4>
+            <h4>Number of Jokes: <input placeholder="(1-10)" id="num-searched"></h4>
+
         </div>
 
         <p id="enterBtn">Enter</p>
+
+        <p id="favbox">Favorites</p> 
 
         <p id="welcomeTag"></p>
         <p>You searched for: <i id="searchterm"></i></p>
