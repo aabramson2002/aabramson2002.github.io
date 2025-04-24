@@ -7,26 +7,19 @@ let xMark = document.querySelector("#x-mark");
 let answer = document.querySelector(".answer");
 
 //related to jokes being serarched for
-let jokeType = document.querySelector("#joketype");
+let jokeType = document.querySelector("#jokeType");
 let numSearched = document.querySelector("#num-searched");
 let dropdown = document.querySelector("#dropdown");
-let nsfwButton = document.querySelector("#NSFWBtn");
 let enterBtn = document.querySelector("#enterBtn");
 
 //opens up the favorites link when the favorites button is pressed
-favbox.onclick = function (e) {
-    window.open("favorites.html");
-}
+favbox.onclick = () => { window.open("favorites.html") };
 
 //when the checkmarck is clicked, the joke's background becomes yellow
-checkMark.onclick = function (e) {
-    answer.style.backgroundColor = "yellow";
-}
+checkMark.onclick = () => { answer.style.backgroundColor = "yellow" };
 
 //when the x mark is clicked, the joke's background returns to it's original color
-xMark.onclick = function (e) {
-    answer.style.backgroundColor = "lightblue";
-}
+xMark.onclick = () => { answer.style.backgroundColor = "lightblue" };
 
 //joke key
 const SERVICE_URL = "https://v2.jokeapi.dev/joke/";
@@ -40,7 +33,6 @@ window.onload = enter;
 function enter() { enterBtn.onclick = findInfo; }
 
 function findInfo() {
-
     //search bar is currently empty
     let searchTerm = "";
 
@@ -53,6 +45,17 @@ function findInfo() {
         }
     }
 
+    //adds safe mode to filter out NSFW jokes
+    url += '?safe-mode';
+
+    //highlights if a value is selected in joke type dropdown
+    if (jokeType.querySelector(`option[value=one]`).selected == true) {
+        url += '&type=single';
+    }
+    else if (jokeType.querySelector(`option[value=two]`).selected == true) {
+        url += '&type=twopart';
+    }
+
     //finds what is written in the search bar
     let searchBar = document.querySelector("#search").value;
 
@@ -63,82 +66,66 @@ function findInfo() {
     const savedSearch = localStorage.getItem(searchTerm);
 
     //welcome back message for when the same person writes the same tag
-    if (savedSearch){
+    if (savedSearch) {
         document.querySelector("#welcomeTag").innerHTML = "Welcome back!";
     }
 
-    //all nsfw tags
-    const NSFW_TAG = "?blacklistFlags=nsfw,religious,political,racist,sexist,explicit"
-    //special character that comes before a tag
-    let linkchar2 = "";
-
-    //used to filter out all nsfw jokes
-    if (nsfwButton.checked == true) {
-        linkchar2 = "&";
-        url += NSFW_TAG + linkchar2 + `contains=${searchTerm}`;
-    }
-    //only adds search term if the nsfw button is not selected
-    else {
-        linkchar2 = "?";
-        url += linkchar2 + `contains=${searchTerm}`;
-    }
+    url += `&contains=${searchTerm}`;
 
     //changes the debug line to having the complete url
     document.querySelector("#debug").innerHTML = `Querying with: <a href="${url}" target="_blank">${url}</a>`;
-    
-    getData(url);
 
+    searchTerm = "";
+
+    getData(url);
 }
 
-function getData(e){
+function getData(data) {
     let xhr = new XMLHttpRequest(); //creates request for API to retrieve a joke
 
     //ran if the API has information
-    xhr.onload = hasLoaded;
+    //xhr.onload = hasLoaded;
+
+    xhr.onload = (e) => {
+        console.log(`Loaded - HTTP Staus Code: ${e.target.status}`);
+
+        //parses response into a JSON file
+        //let obj = JSON.parse(xhr.response);
+
+        const text = e.target.responseText;
+        let json;
+        try{
+            json = JSON.parse(text);
+        }
+        //writes message if information from the JSON file is not recieved or doesn't exist
+        catch{
+            document.querySelector(".answer").innerHTML = "JSON parse error."
+            return;
+        }
+
+
+        console.log(json);
+
+        //replaces sample joke with the joke generated from the API
+        if (json.type == "single") {
+            let jokeOutput = `<p>"${json.joke}}"</p> <img src="Images/check-mark.png" alt="checkmark" id="checkmark"> <img src="Images/red-x.png" alt="x-mark" id="x-mark"> <br>"`;
+            document.querySelector(".answer").innerHTML = jokeOutput;
+            return;
+        }
+        else if (json.type == "double") {
+            let jokeOutput = `<p>"${json.setup}"<br>"${json.delivery}</p> <img src="Images/check-mark.png" alt="checkmark" id="checkmark"> <img src="Images/red-x.png" alt="x-mark" id="x-mark"> <br>"`;
+            document.querySelector(".answer").innerHTML = jokeOutput;
+            return;
+        }
+    }
 
     //ran if the API has an error
-    xhr.onerror = hasError;
-
-    //sends request
-    xhr.open("GET", url);
+    xhr.onerror = (e) => document.querySelector("#debug").innerHTML = `Error: ${e.target.status}`;
+    xhr.open("GET", data);    //sends request
     xhr.send();
 }
 
 function hasLoaded(e) {
-    //obtains response from API
-    let xhr = e.target;
 
-    //console.log(xhr.response);
-
-    //parses response into a JSON file
-    let obj = JSON.parse(xhr.response);
-    
-    console.log(obj);
-
-    //console.log(e.target.response)
-
-    //writes message if information from the JSON file is not recieved or doesn't exist
-    if(!obj.error == true){
-        document.querySelector(".answer").innerHTML = "There is no joke. :(";
-        return;
-    }
-
-    //replaces sample joke with the joke generated from the API
-    let response = obj.type;
-
-    if (response == "single"){
-        let jokeOutput = `<p>"${obj.joke}}"</p> <img src="Images/check-mark.png" alt="checkmark" id="checkmark"> <img src="Images/red-x.png" alt="x-mark" id="x-mark"> <br>"`;
-        document.querySelector(".answer").innerHTML = jokeOutput;
-    }
-    else if (response == "double"){
-        let jokeOutput = `<p>"${obj.setup}"<br>"${obj.delivery}</p> <img src="Images/check-mark.png" alt="checkmark" id="checkmark"> <img src="Images/red-x.png" alt="x-mark" id="x-mark"> <br>"`;
-        document.querySelector(".answer").innerHTML = jokeOutput;
-    }   
 }
-
-//displays an error message if the API is unable to retrieve information
-function hasError(e) {
-    document.querySelector("#debug").innerHTML = "An error has happened";
-}
-
 
