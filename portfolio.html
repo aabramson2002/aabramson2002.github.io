@@ -6,15 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <title>Adam's Portfolio</title>
+    <style>
+        #navbar {}
+
+        #navContainer {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            border: 1px solid #e7e7e7;
+            background-color: #f3f3f3;
+            position: fixed;
+            top: 0;
+        }
+
+        #navContainer li {
+            float: left;
+            border-right: 1px solid #bbbbbb;
+        }
+
+        #navContainer li:last-child {
+            border-right: none;
+        }
+
+        #navContainer li a.active {
+            background-color: #0599ff;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #headshot {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <div id="navbar" >
+            <nav class="mx-2">
+                <ul id="navContainer">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#workExperience">Work</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <br>
     <h1 class="title is-1">Adam Abramson's Portfolio</h1>
-    <img src="media/DSC_7492.jpg" alt="Headshot" width="500" height="600">
+    <img src="media/DSC_7492.jpg" alt="Headshot" width="500" height="600" id="headshot">
     <br>
     <section>
-        <h2 class="title is-2">About Me</h2>
+        <h2 class="title is-2" id="about">About Me</h2>
         <div>
             <p>Hi! My name is Adam Abramson. I am an aspiring software developer who has contributed to
                 some of the largest brands in the world. I am also currently obtaining my Master's degree
@@ -23,18 +75,44 @@
         </div>
         <br>
         <div>
-            <h3 class="subtitle is-3">Links</h3>
+            <h3 class="subtitle is-3">Contact Me</h3>
             <li>
-                <ul>Linkedin <a href="https://www.linkedin.com/in/adam-abramson/"></a></ul>
-                <ul>Github <a href="https://github.com/aabramson2002"></a></ul>
+                <ul>Email: aabramson44@comcast.net</ul>
+                <ul><a href="https://www.linkedin.com/in/adam-abramson/">Linkedin</a></ul>
+                <ul> <a href="https://github.com/aabramson2002">Github</a></ul>
             </li>
         </div>
     </section>
     <br>
     <section>
-        <h2 class="title is-2">Education</h2>
+        <h2 class="title is-2" id="education">Education</h2>
         <h3 class="subtitle is-3">Rochester Institute of Technology</h3>
         <img src="media/RIT_logo.png" width="250" height="300">
+        <div class="grid">
+            <div class="cell px-1">
+                <h3 class="subtitle is-3">New Jersey Institute of Technology</h3>
+                <img src="media/nj-institute-of-technology.jpg" width="250" height="300">
+                <p><b>Master's of Science, Information Systems</b></p>
+                <p>I am currently pursuing my master’s degree in information systems at NJIT, where I am developing
+                    skills across software development, data management, and information technology. The program
+                    combines business and technology, with a focus on using data and software to solve real-world
+                    problems. I chose this program because I wanted to strengthen my understanding of how technology,
+                    business, and data work together. My coursework has allowed me to explore areas including Python
+                    development, Web APIs, UX design, data mining, and enterprise databases. I am expected to graduate
+                    in 2027.
+                </p>
+            </div>
+            <br>
+            <div class="cell px-1 mx-2">
+                <h3 class="subtitle is-3">University of Pennslvania</h3>
+                <p><b>Certificate, Introduction to Programming with Python and Java Specialization</b></p>
+                <p> I completed a four-course programming specialization focused on Python and Java. The program
+                    strengthened my understanding of programming fundamentals, Python syntax, data analysis libraries
+                    such as Pandas and Matplotlib, and object-oriented programming in Java. This experience provided a
+                    strong foundation that I have continued to build upon through my graduate studies.
+                </p>
+            </div>
+        </div>
         <div class="grid">
             <div class="cell px-1 mx-2">
                 <p><b>Bachelor's of Science, Game Design And Development</b></p>
@@ -68,36 +146,11 @@
             </div>
             <br>
         </div>
-        <div class="grid">
-            <div class="cell px-1">
-                <h3 class="subtitle is-3">New Jersey Institute of Technology</h3>
-                <img src="media/nj-institute-of-technology.jpg" width="250" height="300">
-                <p><b>Master's of Science, Information Systems</b></p>
-                <p>I am currently pursuing my master’s degree in information systems at NJIT, where I am developing
-                    skills across software development, data management, and information technology. The program
-                    combines business and technology, with a focus on using data and software to solve real-world
-                    problems. I chose this program because I wanted to strengthen my understanding of how technology,
-                    business, and data work together. My coursework has allowed me to explore areas including Python
-                    development, Web APIs, UX design, data mining, and enterprise databases. I am expected to graduate
-                    in 2027.
-                </p>
-            </div>
-            <br>
-            <div class="cell px-1 mx-2">
-                <h3 class="subtitle is-3">University of Pennslvania</h3>
-                <p><b>Certificate, Introduction to Programming with Python and Java Specialization</b></p>
-                <p> I completed a four-course programming specialization focused on Python and Java. The program
-                    strengthened my understanding of programming fundamentals, Python syntax, data analysis libraries
-                    such as Pandas and Matplotlib, and object-oriented programming in Java. This experience provided a
-                    strong foundation that I have continued to build upon through my graduate studies.
-                </p>
-            </div>
-        </div>
 
     </section>
     <br>
     <section>
-        <h2 class="title is-2">Work Experience</h2>
+        <h2 class="title is-2" id="workExperience">Work Experience</h2>
         <div class="grid">
             <div class="cell px-1 mx-2">
                 <h3 class="subtitle is-3">Safilo</h3>
@@ -134,9 +187,10 @@
     </section>
     <br>
     <section>
-        <h2 class="title is-2">Projects</h2>
+        <h2 class="title is-2" id="projects">Projects</h2>
         <div class="grid">
             <div class="cell px-1 mx-2">
+                <div>
                 <h3 class="subtitle is-3">JSON Generator</h3>
                 <p>
                     The JSON Generator is a personal project designed to automate the process of converting Excel data
@@ -171,7 +225,7 @@
                     responsive, mobile friendly button, and reduced the amount of code by over half.
                     I then moved the newsletter to an excel spreadsheet to automate the process of creating it. The HTML
                     is divided into rows where there is an empty column in each row for each updatable section in the
-                    newsletter.  The new process reduced production time
+                    newsletter. The new process reduced production time
                     to a few days and continues to be used by the team.
 
                 </p>
